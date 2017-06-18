@@ -17,12 +17,13 @@ function parseData(data) {
   for(var i = 0; i < tmpArr.length; i++) {
     newtmparr.push(tmpArr[i].split(','));
   }
-  console.log('newtmparr');
-  console.log(newtmparr.length);
-  for(var j = 0; j < newtmparr.length; i++) {
+  for(var j = 0; j < newtmparr.length; j++) {
     for(var k = 0; k < newtmparr[j].length; k++) {
       if(newtmparr[j][k].includes('Census Tract')) {
         console.log('true');
+        console.log(newtmparr[j][k]);
+        newtmparr[j][k].replace(/[^\d.-]/g, '');
+        console.log(newtmparr[j][k]);
       }
     }
   }
