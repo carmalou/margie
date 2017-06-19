@@ -7,7 +7,13 @@ fs.readFile(file, 'utf-8', function(err, data) {
   if(err) {
     console.log('err! ', err);
   }
-  parseData(data);
+  var tmparr = parseData(data);
+  var finalpiece = convertToCsv(tmparr);
+  fs.writeFile('location-data-formatted.csv', finalpiece, function(err) {
+    if(err) {
+      console.log('something terrible has happened! ', err);
+    }
+  })
 });
 
 // next parse data
@@ -36,7 +42,15 @@ function parseData(data) {
   }
 
   newtmparr.unshift(['Census Track', 'County', 'State']);
-  console.log(newtmparr);
+
+  return newtmparr;
 }
 
-// lastly stream it into new file
+// convert array to csv
+function convertToCsv(arr) {
+  for(var i = 0; i < arr.length; i++) {
+    arr[i] = arr[i].join(',');
+  }
+  arr = arr.join('\n');
+  return arr;
+}
