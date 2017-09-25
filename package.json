@@ -1,0 +1,19 @@
+{
+  "name": "margie",
+  "version": "1.0.0",
+  "description": "A map to gather census data for the OKC metro based on household income. Overlay this map with places well known for offering internet. Thinking libraries, starbucks, mcdonalds, etc. See if there is a dropoff in the areas with lower income. (Economics dictates that there likely will be, as less disposable income will mean that there will be less \"non-essential\" sales and/or purchases.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/carmalou/margie.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/carmalou/margie/issues"
+  },
+  "homepage": "https://github.com/carmalou/margie#readme"
+}
