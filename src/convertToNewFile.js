@@ -1,30 +1,26 @@
 var fs = require('fs');
-var file1 = __dirname + '/cb_2016_40_tract_500k_formatted.json';
-var file2 = __dirname + '/census_data_oklahoma.json';
-var file1Data;
-var file2Data;
+var file1 = require(__dirname + '/cb_2016_40_tract_500k_formatted.json');
+var file2 = require(__dirname + '/census_data_oklahoma.json');
 
-function getFileData(file) {
-  return fs.readFileSync(file, 'utf-8', function(err, data) {
-    if(err) {
-      console.log('something terrible happened!');
-    } else {
-      console.log('else!');
-      return data;
-    }
-  });
-}
-
-file1Data = getFileData(file1);
-file2Data = getFileData(file2);
-
-function mapData() {
-  for(var i = 0; i < file2Data.length; i++) {
-    var tmpTract = file2Data[i].census_track_number;
-    console.log(tmpTract);
+function loopOverCensusData() {
+  for(var i = 0; i < file2.length; i++) {
+    loopOverGeoJSON(file2[i]);
   }
 }
 
-console.log(file2Data);
+function loopOverGeoJSON(properties) {
+  for(var i = 0; i < file1.features.length; i++) {
+    if(file1.features[i].properties.NAME == properties.census_track_number) {
+      for(var key in properties) {
+        file1.features[i].properties[key.toUpperCase()] = properties[key];
+      }
+    }
+  }
+  console.log(file1);
+}
 
-mapData();
+function writeNewFile(fileData) {
+  fs.writeFile('cb_2016_census_and_tract_data.json', JSON.stringify(fileData), 'utf-8');
+}
+
+loopOverCensusData();
