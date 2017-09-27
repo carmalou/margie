@@ -16,11 +16,12 @@ function loopOverGeoJSON(properties) {
       }
     }
   }
-  console.log(file1);
+  writeNewFile(file1);
 }
 
 function writeNewFile(fileData) {
-  fs.writeFile('cb_2016_census_and_tract_data.json', JSON.stringify(fileData), 'utf-8');
+  var tmpStr = JSON.stringify(fileData);
+  fs.writeFile('cb_2016_census_and_tract_data.json', tmpStr, 'utf-8');
 }
 
 loopOverCensusData();
