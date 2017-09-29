@@ -15,32 +15,33 @@
     style: 'mapbox://styles/queencarmen/cj7yy7n6b6azd2smeyej7mh2x'
   });
 
-  var popup = new mapboxgl.Popup({
-    closeButton: true,
-    closeOnClick: true
-  });
-
   var arrOfIds = ['cb-2016-40-tract-10k', 'cb-2016-40-tract-10k-20k', 'cb-2016-40-tract-20k-30k', 'cb-2016-40-tract-30k-40k', 'cb-2016-40-tract-40k-50k', 'cb-2016-40-tract-50k-60k', 'cb-2016-40-tract-60k-70k', 'cb-2016-40-tract-70k-80k', 'cb-2016-40-tract-80k-90k', 'cb-2016-40-tract-90k-99999k', 'cb-2016-40-tract-100k'];
 
-function addEvents(tmpId) {
-  map.on('mouseenter', tmpId, function(e) {
-    map.getCanvas().style.cursor = 'pointer';
-  });
+  function buildOutMessage(e) {
+    return "The median household income for census tract " + e.features[0].properties.NAME + " is $" + e.features[0].properties.total_median_earnings + ".";
+  }
 
-  map.on('mouseleave', tmpId, function() {
-    map.getCanvas().style.cursor = '';
-  });
+  function addEvents(tmpId) {
+    map.on('mouseenter', tmpId, function(e) {
+      map.getCanvas().style.cursor = 'pointer';
+    });
 
-  map.on('click', tmpId, function(e) {
-    popup.setLngLat(e.lngLat)
-         .setHTML("Hi!")
-         .addTo(map);
-  });
-}
+    map.on('mouseleave', tmpId, function() {
+      map.getCanvas().style.cursor = '';
+    });
 
-for(var i = 0; i < arrOfIds.length; i++) {
-  addEvents(arrOfIds[i]);
-}
+    map.on('click', tmpId, function(e) {
+      buildOutMessage(e);
+      new mapboxgl.Popup()
+        .setLngLat(e.lngLat)
+        .setHTML(buildOutMessage(e))
+        .addTo(map);
+    });
+  }
+
+  for(var i = 0; i < arrOfIds.length; i++) {
+    addEvents(arrOfIds[i]);
+  }
 
 </script>
 </body>
