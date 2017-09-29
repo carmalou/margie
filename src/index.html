@@ -23,15 +23,12 @@
   var arrOfIds = ['cb-2016-40-tract-10k', 'cb-2016-40-tract-10k-20k', 'cb-2016-40-tract-20k-30k', 'cb-2016-40-tract-30k-40k', 'cb-2016-40-tract-40k-50k', 'cb-2016-40-tract-50k-60k', 'cb-2016-40-tract-60k-70k', 'cb-2016-40-tract-70k-80k', 'cb-2016-40-tract-80k-90k', 'cb-2016-40-tract-90k-99999k', 'cb-2016-40-tract-100k'];
 
 function addEvents(tmpId) {
-  console.log(tmpId);
   map.on('mouseenter', tmpId, function(e) {
     map.getCanvas().style.cursor = 'pointer';
-    console.log('mouseenter');
   });
 
   map.on('mouseleave', tmpId, function() {
     map.getCanvas().style.cursor = '';
-    console.log('mouseleave');
   });
 
   map.on('click', tmpId, function(e) {
@@ -39,7 +36,6 @@ function addEvents(tmpId) {
          .setHTML("Hi!")
          .addTo(map);
   });
-  console.log('click');
 }
 
 for(var i = 0; i < arrOfIds.length; i++) {
