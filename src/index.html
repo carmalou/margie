@@ -11,9 +11,29 @@
 <script>
   mapboxgl.accessToken = 'pk.eyJ1IjoicXVlZW5jYXJtZW4iLCJhIjoiY2o3eXh2d2o5NjRkdzJ3dDY5YW82enNjNCJ9.jb4hQ2e52YiayA7zUTF5VQ';
   var map = new mapboxgl.Map({
-  container: 'map',
-  style: 'mapbox://styles/queencarmen/cj7yy7n6b6azd2smeyej7mh2x'
+    container: 'map',
+    style: 'mapbox://styles/queencarmen/cj7yy7n6b6azd2smeyej7mh2x'
   });
+
+  var popup = new mapboxgl.Popup({
+    closeButton: true,
+    closeOnClick: true
+  });
+
+  map.on('mouseenter', 'cb-2016-40-tract-10k', function(e) {
+    map.getCanvas().style.cursor = 'pointer';
+  });
+
+  map.on('mouseleave', 'cb-2016-40-tract-10k', function() {
+    map.getCanvas().style.cursor = '';
+  });
+
+  map.on('click', 'cb-2016-40-tract-10k', function(e) {
+    popup.setLngLat(e.lngLat)
+         .setHTML("Hi!")
+         .addTo(map);
+  });
+
 </script>
 </body>
 </html>
