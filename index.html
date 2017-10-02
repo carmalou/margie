@@ -15,6 +15,11 @@
     style: 'mapbox://styles/queencarmen/cj7yy7n6b6azd2smeyej7mh2x'
   });
 
+  var libPopup = new mapboxgl.Popup({
+        closeButton: false,
+        closeOnClick: false
+    });
+
   var arrOfIds = ['cb-2016-40-tract-10k', 'cb-2016-40-tract-10k-20k', 'cb-2016-40-tract-20k-30k', 'cb-2016-40-tract-30k-40k', 'cb-2016-40-tract-40k-50k', 'cb-2016-40-tract-50k-60k', 'cb-2016-40-tract-60k-70k', 'cb-2016-40-tract-70k-80k', 'cb-2016-40-tract-80k-90k', 'cb-2016-40-tract-90k-99999k', 'cb-2016-40-tract-100k', 'ok-lib-geojson'];
 
   function buildOutMessage(e) {
@@ -34,21 +39,24 @@
       map.getCanvas().style.cursor = '';
     });
 
+    map.on('click', tmpId, function(e) {
+      new mapboxgl.Popup()
+        .setLngLat(e.lngLat)
+        .setHTML(buildOutMessage(e))
+        .addTo(map);
+    });
+
     if(tmpId == 'ok-lib-geojson') {
-      map.on('click', tmpId, function(e) {
-        console.log('oklib!');
-        new mapboxgl.Popup()
+      map.on('mouseenter', tmpId, function(e) {
+        libPopup = new mapboxgl.Popup()
           .setLngLat(e.lngLat)
           .setHTML(buildLibMessage(e))
           .addTo(map);
       });
-    } else {
-      map.on('click', tmpId, function(e) {
-        console.log('not oklib');
-        new mapboxgl.Popup()
-          .setLngLat(e.lngLat)
-          .setHTML(buildOutMessage(e))
-          .addTo(map);
+
+      map.on('mouseleave', tmpId, function() {
+        map.getCanvas().style.cursor = '';
+        libPopup.remove();
       });
     }
   }
