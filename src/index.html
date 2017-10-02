@@ -35,8 +35,8 @@
     });
 
     if(tmpId == 'ok-lib-geojson') {
-      console.log('ok-lib!');
       map.on('click', tmpId, function(e) {
+        console.log('oklib!');
         new mapboxgl.Popup()
           .setLngLat(e.lngLat)
           .setHTML(buildLibMessage(e))
@@ -44,6 +44,7 @@
       });
     } else {
       map.on('click', tmpId, function(e) {
+        console.log('not oklib');
         new mapboxgl.Popup()
           .setLngLat(e.lngLat)
           .setHTML(buildOutMessage(e))
