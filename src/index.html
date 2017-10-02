@@ -34,20 +34,20 @@
       map.getCanvas().style.cursor = '';
     });
 
+    map.on('click', tmpId, function(e) {
+      new mapboxgl.Popup()
+        .setLngLat(e.lngLat)
+        .setHTML(buildOutMessage(e))
+        .addTo(map);
+
     if(tmpId == 'ok-lib-geojson') {
       map.on('click', tmpId, function(e) {
         console.log('oklib!');
+        console.log('e ', e);
+        event.stopPropagation();
         new mapboxgl.Popup()
           .setLngLat(e.lngLat)
           .setHTML(buildLibMessage(e))
-          .addTo(map);
-      });
-    } else {
-      map.on('click', tmpId, function(e) {
-        console.log('not oklib');
-        new mapboxgl.Popup()
-          .setLngLat(e.lngLat)
-          .setHTML(buildOutMessage(e))
           .addTo(map);
       });
     }
