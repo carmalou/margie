@@ -4515,6 +4515,573 @@
         "phone": "580-362-3934",
         "url": "http://newkirkpl.okpls.org/"
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.977892,
+          36.747064
+        ]
+      },
+      "properties": {
+        "ID": "4175",
+        "libName": "Bartlesville Public Library",
+        "address": "600 S Johnstone Ave",
+        "city": "Bartlesville",
+        "state": "OK",
+        "zip": "74003",
+        "country": "USA",
+        "phone": "918-338-4161",
+        "url": "http://www.bartlesville.lib.ok.us/"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.93693,
+          36.79938
+        ]
+      },
+      "properties": {
+        "ID": "4264",
+        "libName": "Herbert F. Tyler Memorial Library",
+        "address": "821 N Shawnee Ave",
+        "city": "Dewey",
+        "state": "OK",
+        "zip": "74029",
+        "country": "USA",
+        "phone": "918-534-2106",
+        "url": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.16181,
+          36.559861
+        ]
+      },
+      "properties": {
+        "ID": "4173",
+        "libName": "Ethel Briggs Memorial Library",
+        "address": "410 S 5th St",
+        "city": "Barnsdall",
+        "state": "OK",
+        "zip": "74002",
+        "country": "USA",
+        "phone": "918-847-2118",
+        "url": "http://www.ethelbriggs.lib.ok.us/"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.639411,
+          36.69802
+        ]
+      },
+      "properties": {
+        "ID": "4489",
+        "libName": "Nowata City-County Library",
+        "address": "224 S Pine St",
+        "city": "Nowata",
+        "state": "OK",
+        "zip": "74048",
+        "country": "USA",
+        "phone": "918-273-3363",
+        "url": "https://www.facebook.com/Nowata-CityCounty-Library-341368709255263/"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.331789,
+          36.675705
+        ]
+      },
+      "properties": {
+        "ID": "4529",
+        "libName": "Pawhuska Public Library",
+        "address": "1801 Lynn Ave",
+        "city": "Pawhuska",
+        "state": "OK",
+        "zip": "74056",
+        "country": "USA",
+        "phone": "918-287-3989",
+        "url": "http://ok-pawhuska.civiccities.com/index.aspx?nid=379"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.700877,
+          36.530886
+        ]
+      },
+      "properties": {
+        "ID": "4744",
+        "libName": "Talala Public Library",
+        "address": "104 W Watova St",
+        "city": "Talala",
+        "state": "OK",
+        "zip": "74080",
+        "country": "USA",
+        "phone": "918-275-4540",
+        "url": "https://www.facebook.com/TalalaAreaLibrary"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.998171,
+          36.3685
+        ]
+      },
+      "properties": {
+        "ID": "4722",
+        "libName": "Skiatook Library",
+        "address": "316 E Rogers Blvd",
+        "city": "Skiatook",
+        "state": "OK",
+        "zip": "74070",
+        "country": "USA",
+        "phone": "918-549-7676",
+        "url": "http://www.tulsalibrary.org/"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.840193,
+          36.364255
+        ]
+      },
+      "properties": {
+        "ID": "4248",
+        "libName": "Collinsville Library",
+        "address": "1223 W Main St",
+        "city": "Collinsville",
+        "state": "OK",
+        "zip": "74021",
+        "country": "USA",
+        "phone": "918-549-7528",
+        "url": "http://www.tulsalibrary.org/"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.992537,
+          36.30108
+        ]
+      },
+      "properties": {
+        "ID": "4828",
+        "libName": "Judy Z. Kishner Library",
+        "address": "10150 N Cincinnati Ave E",
+        "city": "Tulsa",
+        "state": "OK",
+        "zip": "74073",
+        "country": "USA",
+        "phone": "918-549-7577",
+        "url": "http://www.tulsalibrary.org/"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.395086,
+          36.415912
+        ]
+      },
+      "properties": {
+        "ID": "4349",
+        "libName": "Hominy Public Library",
+        "address": "121 W Main St",
+        "city": "Hominy",
+        "state": "OK",
+        "zip": "74035",
+        "country": "USA",
+        "phone": "918-885-4486",
+        "url": "http://www.hominy.lib.ok.us/"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.43263,
+          36.535231
+        ]
+      },
+      "properties": {
+        "ID": "4221",
+        "libName": "Chelsea Public Library",
+        "address": "618 Pine",
+        "city": "Chelsea",
+        "state": "OK",
+        "zip": "74016",
+        "country": "USA",
+        "phone": "918-789-3364",
+        "url": "http://chelsealibrary.okpls.org/"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.855453,
+          36.266382
+        ]
+      },
+      "properties": {
+        "ID": "4525",
+        "libName": "Owasso Library",
+        "address": "103 W Broadway St",
+        "city": "Owasso",
+        "state": "OK",
+        "zip": "74055",
+        "country": "USA",
+        "phone": "918-549-7624",
+        "url": "http://www.tulsalibrary.org/"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.604339,
+          36.324997
+        ]
+      },
+      "properties": {
+        "ID": "4233",
+        "libName": "Will Rogers Library",
+        "address": "1515 N Florence Ave",
+        "city": "Claremore",
+        "state": "OK",
+        "zip": "74017",
+        "country": "USA",
+        "phone": "918-341-1564",
+        "url": "http://www.willrogerslibrary.org/"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.98678,
+          36.220571
+        ]
+      },
+      "properties": {
+        "ID": "4846",
+        "libName": "Suburban Acres Library",
+        "address": "4606 N Garrison Ave",
+        "city": "Tulsa",
+        "state": "OK",
+        "zip": "74126",
+        "country": "USA",
+        "phone": "918-549-7655",
+        "url": "http://www.tulsalibrary.org/"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.661208,
+          36.784937
+        ]
+      },
+      "properties": {
+        "ID": "4720",
+        "libName": "Shidler Public Library",
+        "address": "N 4th & Cosden",
+        "city": "Shidler",
+        "state": "OK",
+        "zip": "74652",
+        "country": "United States",
+        "phone": "918-793-4171",
+        "url": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.984781,
+          36.177598
+        ]
+      },
+      "properties": {
+        "ID": "4842",
+        "libName": "Rudisill Regional Library",
+        "address": "1520 N Hartford",
+        "city": "Tulsa",
+        "state": "OK",
+        "zip": "74106",
+        "country": "USA",
+        "phone": "918-549-7645",
+        "url": "http://www.tulsalibrary.org/"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.994458,
+          36.150645
+        ]
+      },
+      "properties": {
+        "ID": "4818",
+        "libName": "Central Library",
+        "address": "400 Civic Center",
+        "city": "Tulsa",
+        "state": "OK",
+        "zip": "74103",
+        "country": "USA",
+        "phone": "918-549-7323",
+        "url": "http://www.tulsalibrary.org/"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.70348,
+          36.573425
+        ]
+      },
+      "properties": {
+        "ID": "4297",
+        "libName": "Fairfax Public Library",
+        "address": "158 E Elm Ave",
+        "city": "Fairfax",
+        "state": "OK",
+        "zip": "74637",
+        "country": "USA",
+        "phone": "918-642-5535",
+        "url": "http://www.fairfax.lib.ok.us/"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.101805,
+          36.141375
+        ]
+      },
+      "properties": {
+        "ID": "4701",
+        "libName": "Charles Page Library",
+        "address": "551 E 4th St",
+        "city": "Sand Springs",
+        "state": "OK",
+        "zip": "74063",
+        "country": "USA",
+        "phone": "918-549-7521",
+        "url": "http://www.tulsalibrary.org/"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.118671,
+          36.115624
+        ]
+      },
+      "properties": {
+        "ID": "4699",
+        "libName": "Pratt Library",
+        "address": "3219 S 113th W Ave",
+        "city": "Sand Springs",
+        "state": "OK",
+        "zip": "74063",
+        "country": "USA",
+        "phone": "918-549-7638",
+        "url": "http://www.tulsalibrary.org/"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.155878,
+          36.639286
+        ]
+      },
+      "properties": {
+        "ID": "4854",
+        "libName": "Vinita Public Library",
+        "address": "215 W Illinois Ave",
+        "city": "Vinita",
+        "state": "OK",
+        "zip": "74301",
+        "country": "USA",
+        "phone": "918-256-2115",
+        "url": "http://www.vinitapl.okpls.org/"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.859762,
+          36.765986
+        ]
+      },
+      "properties": {
+        "ID": "4372",
+        "libName": "J. A. Walker Memorial Library",
+        "address": "900 Morgan Square",
+        "city": "Kaw City",
+        "state": "OK",
+        "zip": "74641",
+        "country": "USA",
+        "phone": "580-269-1317",
+        "url": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.13087,
+          36.410609
+        ]
+      },
+      "properties": {
+        "ID": "4734",
+        "libName": "Strang Community Library",
+        "address": "E Broadway & East Street",
+        "city": "Strang",
+        "state": "OK",
+        "zip": "74367",
+        "country": "United States",
+        "phone": "918-593-2350",
+        "url": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.048004,
+          36.466686
+        ]
+      },
+      "properties": {
+        "ID": "4407",
+        "libName": "Langley Public Library",
+        "address": "325 W Osage",
+        "city": "Langley",
+        "state": "OK",
+        "zip": "74350",
+        "country": "USA",
+        "phone": "918-782-4461",
+        "url": "http://langleypl.okpls.org/"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -94.877063,
+          36.877944
+        ]
+      },
+      "properties": {
+        "ID": "4448",
+        "libName": "Miami Public Library",
+        "address": "200 N Main St",
+        "city": "Miami",
+        "state": "OK",
+        "zip": "74354",
+        "country": "USA",
+        "phone": "918-541-2292",
+        "url": "http://www.miamipl.okpls.org/"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -94.753869,
+          36.584897
+        ]
+      },
+      "properties": {
+        "ID": "4315",
+        "libName": "Grove Public Library",
+        "address": "1140 NEO Loop",
+        "city": "Grove",
+        "state": "OK",
+        "zip": "73044",
+        "country": "USA",
+        "phone": "918-786-2945",
+        "url": "http://www.eodls.lib.ok.us/grove.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -94.802716,
+          36.41967
+        ]
+      },
+      "properties": {
+        "ID": "4364",
+        "libName": "Delaware County Library",
+        "address": "429 S 9th St",
+        "city": "Jay",
+        "state": "OK",
+        "zip": "74346",
+        "country": "USA",
+        "phone": "918-253-8521",
+        "url": "http://www.eodls.lib.ok.us/jay.html"
+      }
     }
   ]
 }

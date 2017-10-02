@@ -4,6 +4,7 @@ var uniqBy = require('lodash.uniqby');
 var lib1 = require('./libraries1.json');
 var lib2 = require('./libraries2.json');
 var lib3 = require('./libraries3.json');
+var lib4 = require('./libraries4.json');
 var tmpArr = [];
 
 function combineArrs(tmp) {
@@ -15,6 +16,7 @@ function combineArrs(tmp) {
 combineArrs(lib1);
 combineArrs(lib2);
 combineArrs(lib3);
+combineArrs(lib4);
 
 var newArr = uniqBy(tmpArr, "id");
 
