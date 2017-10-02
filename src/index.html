@@ -15,10 +15,14 @@
     style: 'mapbox://styles/queencarmen/cj7yy7n6b6azd2smeyej7mh2x'
   });
 
-  var arrOfIds = ['cb-2016-40-tract-10k', 'cb-2016-40-tract-10k-20k', 'cb-2016-40-tract-20k-30k', 'cb-2016-40-tract-30k-40k', 'cb-2016-40-tract-40k-50k', 'cb-2016-40-tract-50k-60k', 'cb-2016-40-tract-60k-70k', 'cb-2016-40-tract-70k-80k', 'cb-2016-40-tract-80k-90k', 'cb-2016-40-tract-90k-99999k', 'cb-2016-40-tract-100k'];
+  var arrOfIds = ['cb-2016-40-tract-10k', 'cb-2016-40-tract-10k-20k', 'cb-2016-40-tract-20k-30k', 'cb-2016-40-tract-30k-40k', 'cb-2016-40-tract-40k-50k', 'cb-2016-40-tract-50k-60k', 'cb-2016-40-tract-60k-70k', 'cb-2016-40-tract-70k-80k', 'cb-2016-40-tract-80k-90k', 'cb-2016-40-tract-90k-99999k', 'cb-2016-40-tract-100k', 'ok-lib-geojson'];
 
   function buildOutMessage(e) {
     return "The median household income for census tract " + e.features[0].properties.NAME + " is $" + e.features[0].properties.total_median_earnings + ".";
+  }
+
+  function buildLibMessage(e) {
+    return e.features[0].properties.libName + " located at " + e.features[0].properties.address + "<br />" + e.features[0].properties.city + " " + e.features[0].properties.state + " " + e.features[0].properties.zip;
   }
 
   function addEvents(tmpId) {
@@ -30,13 +34,22 @@
       map.getCanvas().style.cursor = '';
     });
 
-    map.on('click', tmpId, function(e) {
-      buildOutMessage(e);
-      new mapboxgl.Popup()
-        .setLngLat(e.lngLat)
-        .setHTML(buildOutMessage(e))
-        .addTo(map);
-    });
+    if(tmpId == 'ok-lib-geojson') {
+      console.log('ok-lib!');
+      map.on('click', tmpId, function(e) {
+        new mapboxgl.Popup()
+          .setLngLat(e.lngLat)
+          .setHTML(buildLibMessage(e))
+          .addTo(map);
+      });
+    } else {
+      map.on('click', tmpId, function(e) {
+        new mapboxgl.Popup()
+          .setLngLat(e.lngLat)
+          .setHTML(buildOutMessage(e))
+          .addTo(map);
+      });
+    }
   }
 
   for(var i = 0; i < arrOfIds.length; i++) {
