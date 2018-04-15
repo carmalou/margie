@@ -19,7 +19,8 @@
   "dependencies": {
     "@turf/area": "^4.7.3",
     "@turf/center-of-mass": "^4.7.3",
-    "lodash": "^4.17.4",
+    "csv-parser": "^1.12.1",
+    "lodash": "^4.17.5",
     "lodash.uniq": "^4.5.0",
     "lodash.uniqby": "^4.7.0",
     "turf": "^3.0.14"
