@@ -1,6 +1,5 @@
 var fs = require('fs');
 var _ = require('lodash');
-var csv = require('csv-parser');
 
 var censusArr = fs.readdirSync('../data/census_tracts');
 var tmpIncome1 = JSON.parse(fs.readFileSync('../data/A-L_feature_data.json').toString());
@@ -10,7 +9,10 @@ var incomeData = [].concat(tmpIncome1, tmpIncome2);
 
 incomeData = incomeData.map(function(row) {
     for(var prop in row) {
-        if(!Number.isNaN(Number(row[prop]))) {
+        if(prop == 'GEO.id2') {
+            row[prop] = _.padStart(row[prop], 11, '0');
+        }
+        else if(!Number.isNaN(Number(row[prop]))) {
             row[prop] = Number(row[prop]);
         }
     }
@@ -23,8 +25,19 @@ for(var i = 0; i < censusArr.length; i++) {
     var tmp = fs.readFileSync('../data/census_tracts/' + censusArr[i]).toString();
     tmp = JSON.parse(tmp);
     for(var j = 0; j < tmp.features.length; j++) {
-        tmp.features[j].properties = Object.assign(tmp.features[j].properties, incomeData[tmp.features[j].properties.GEOID])
+        var tmpObj = {}
+        if(incomeData[tmp.features[j].properties.GEOID]) {
+            tmpObj.median_income1 = incomeData[tmp.features[j].properties.GEOID].HC01_EST_VC02;
+            tmpObj.median_income1_margin_of_error = incomeData[tmp.features[j].properties.GEOID].HC01_MOE_VC02;
+            tmpObj.median_income2 = incomeData[tmp.features[j].properties.GEOID].HC01_EST_VC15;
+            tmpObj.median_income2_margin_of_error = incomeData[tmp.features[j].properties.GEOID].HC01_MOE_VC15;
+            tmpObj.mean_income = incomeData[tmp.features[j].properties.GEOID].HC01_EST_VC16;
+            tmpObj.mean_income_margin_of_error = incomeData[tmp.features[j].properties.GEOID].HC01_MOE_VC16;
+            tmpObj.geoid1 = incomeData[tmp.features[j].properties.GEOID]['GEO.id'];
+            tmpObj.geoid2 = incomeData[tmp.features[j].properties.GEOID]['GEO.id2'];
+        }
+        
+        tmp.features[j].properties = Object.assign(tmp.features[j].properties, tmpObj);
     }
-    console.log(tmp.features[1].properties);
     fs.writeFileSync('../data/master_data/master_'+ censusArr[i], JSON.stringify(tmp));
 }
