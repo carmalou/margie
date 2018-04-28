@@ -31,7 +31,7 @@
   }
 
   function buildLibMessage(e) {
-    return e.features[0].properties.library_name.toLowerCase() + " located at " + e.features[0].properties.location_address.toLowerCase() + "<br />" + e.features[0].properties.location_city.toLowerCase() + ", " + e.features[0].properties.location_state.toLowerCase();
+    return (e.features[0].properties.library_name ? e.features[0].properties.library_name.toLowerCase() : '') + " located at " + (e.features[0].properties.location_address ? e.features[0].properties.location_address.toLowerCase() : '') + "<br />" + (e.features[0].properties.location_city ? e.features[0].properties.location_city.toLowerCase() : '') + ", " + (e.features[0].properties.location_state ? e.features[0].properties.location_state.toLowerCase() : '');
   }
 
   function addEvents(tmpId) {
