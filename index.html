@@ -6,9 +6,9 @@
   <style>
     .map-overlay {
             position: absolute;
-            bottom: 0;
-            right: 0;
-            background: rgba(255, 255, 255, 0.8);
+            top: 0;
+            left: 0;
+            background: rgba(255, 255, 255, 0.2);
             margin-right: 20px;
             font-family: Arial, sans-serif;
             overflow: auto;
@@ -19,10 +19,12 @@
         padding: 10px;
         box-shadow: 0 1px 2px rgba(0,0,0,0.10);
         line-height: 18px;
-        height: 150px;
-        margin-bottom: 40px;
-        width: 100px;
-        background-color: #fff
+        height: auto;
+        margin-top: 5px;
+        margin-left: 5px;
+        width: auto;
+        background-color: rgba(255, 255, 255, 0.5);
+        display: flex;
     }
 
     .legend-key {
@@ -31,6 +33,12 @@
         width: 10px;
         height: 10px;
         margin-right: 5px;
+    }
+
+    .legend-box {
+      flex-direction: row;
+      width: 30px;
+      height: 30px;
     }
   </style>
 </head>
@@ -132,12 +140,10 @@
     for (var i = 0; i < stops.length; i++) {
         var stop = stops[i];
         var parent = document.createElement('div');
-        var mySpan = document.createElement('div');
-        mySpan.style.backgroundColor = stop[1];
-        mySpan.style.width = '30px';
-        mySpan.style.height = '30px';
-
-        parent.appendChild(mySpan);
+        var myDiv = document.createElement('div');
+        myDiv.classList.add('legend-box');
+        myDiv.style.backgroundColor = stop[1];
+        parent.appendChild(myDiv);
         legend.appendChild(parent);
     }
   }
