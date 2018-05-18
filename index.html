@@ -15,6 +15,17 @@
             border-radius: 3px;
     }
 
+    .legend-info-overlay {
+            position: absolute;
+            top: 60px;
+            left: 0;
+            background: rgba(255, 255, 255, 0.2);
+            margin-left: 20px;
+            font-family: Arial, sans-serif;
+            overflow: auto;
+            border-radius: 3px;
+    }
+
     #legend {
         padding: 10px;
         box-shadow: 0 1px 2px rgba(0,0,0,0.10);
@@ -48,7 +59,7 @@
     <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.2.0/mapbox-gl-geocoder.css' type='text/css' />
   <div id="map" style='width: 100vw; height: 100vh;'></div>
   <div class='map-overlay' id='legend'></div>
-  <div class='map-overlay' id="legend-info"></div>
+  <div class='legend-info-overlay' id="legend-info"></div>
 
 <script>
   mapboxgl.accessToken = 'pk.eyJ1IjoicXVlZW5jYXJtZW4iLCJhIjoiY2o3eXh2d2o5NjRkdzJ3dDY5YW82enNjNCJ9.jb4hQ2e52YiayA7zUTF5VQ';
