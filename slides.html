@@ -15,15 +15,37 @@
       a {
         color: #a07cc0;
       }
+      li {
+        font-size: 24pt;
+      }
       .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
       .inverse {
-        background: #272822;
-        color: #9b9c96;
+        background: #000;
+        color: #fff;
       }
       .remark-slide-content {
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
+      }
+      .stripe {
+        height: 5px;
+        width: 100%;
+        background-color: indigo;
+        border-top: 1px solid rebeccapurple;
+        border-bottom: 1px solid rebeccapurple;
+        position: absolute;
+        margin-top: 125px;
+        left: 0;
+        right: 0;
+      }
+      .remark-slide-right {
+          bottom: 12px;
+          position: absolute;
+          left: 20px;
+      }
+      .carmalou {
+          color: #CCBADC;
       }
     </style>
   </head>
@@ -66,7 +88,7 @@ class: center, middle, inverse, inverse
 
 # Everything we do is online!
 
-![alt text](./img/duty_calls.PNG "If Bill Nye faints and no one tweets it, did it happen?")
+![alt text](./img/duty_calls.PNG "Someone is wrong on the internet")
 
 ???
 * Work
@@ -126,6 +148,21 @@ class: center, middle, inverse
     </script>
     <script>
       var slideshow = remark.create();
+    </script>
+    <script>
+      var slideshow = remark.create();
+      var arr = document.getElementsByClassName('remark-slide-content');
+      for(var i = 0; i < arr.length; i++) {
+        var tmpEl = document.createElement('div');
+        var innerLink = document.createElement('a');
+        innerLink.setAttribute('href', 'https://twitter.com/carmalou');
+        var innerText = document.createTextNode('Twitter: carmalou');
+        tmpEl.classList.add('remark-slide-right');
+        innerLink.classList.add('carmalou');
+        innerLink.appendChild(innerText);
+        tmpEl.appendChild(innerLink);
+        arr[i].appendChild(tmpEl);
+      }
     </script>
   </body>
 </html>
