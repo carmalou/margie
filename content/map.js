@@ -15,6 +15,8 @@
         closeOnClick: false
     });
 
+  var currentCounty = null;
+
   var legend = document.getElementById('legend');
   var legendInfo = document.getElementById('legend-info');
   var arrOfIds = ["master-tl-2016-01-tract", "master-tl-2016-02-tract", "master-tl-2016-03-tract", "master-tl-2016-04-tract", "master-tl-2016-05-tract", "master-tl-2016-06-tract", "master-tl-2016-07-tract", "master-tl-2016-08-tract", "master-tl-2016-09-tract", "master-tl-2016-10-tract", "master-tl-2016-11-tract", "master-tl-2016-12-tract", "master-tl-2016-13-tract", "master-tl-2016-14-tract", "master-tl-2016-15-tract", "master-tl-2016-16-tract", "master-tl-2016-17-tract", "master-tl-2016-18-tract", "master-tl-2016-19-tract", "master-tl-2016-20-tract", "master-tl-2016-21-tract", "master-tl-2016-22-tract", "master-tl-2016-23-tract", "master-tl-2016-24-tract", "master-tl-2016-25-tract", "master-tl-2016-26-tract", "master-tl-2016-27-tract", "master-tl-2016-28-tract", "master-tl-2016-29-tract", "master-tl-2016-30-tract", "master-tl-2016-31-tract", "master-tl-2016-32-tract", "master-tl-2016-33-tract", "master-tl-2016-34-tract", "master-tl-2016-35-tract", "master-tl-2016-36-tract", "master-tl-2016-37-tract", "master-tl-2016-38-tract", "master-tl-2016-39-tract", "master-tl-2016-40-tract", "master-tl-2016-41-tract", "master-tl-2016-42-tract", "master-tl-2016-43-tract", "master-tl-2016-44-tract", "master-tl-2016-45-tract", "master-tl-2016-46-tract", "master-tl-2016-47-tract", "master-tl-2016-48-tract", "master-tl-2016-49-tract", "master-tl-2016-50-tract", "master-tl-2016-51-tract", "master-tl-2016-52-tract", "master-tl-2016-53-tract", "master-tl-2016-54-tract", "master-tl-2016-55-tract", "master-tl-2016-56-tract", "us-libraries-7dnfzr"];
@@ -39,10 +41,11 @@
   ];
 
   function buildOutMessage(e) {
+    var countyFeatures = map.queryRenderedFeatures(e.point, { layers: ['us-counties-gz-2010-us-050-00-20m-2mrc7f'] });
     if(isNaN(e.features[0].properties.median_income1)) {
-      return "No income data available for this tract."
+      return "No income data available for this tract in " + countyFeatures[0].properties.NAME + "County."
     } else {
-      return "The median individual income for census tract " + e.features[0].properties.NAME + " is $" + e.features[0].properties.median_income1 + ".";
+      return "The median income for census tract " + e.features[0].properties.NAME + " in " + countyFeatures[0].properties.NAME + " County is $" + e.features[0].properties.median_income1 + ".";
     }
   }
 
@@ -51,14 +54,6 @@
   }
 
   function addEvents(tmpId) {
-    map.on('mouseenter', tmpId, function(e) {
-      map.getCanvas().style.cursor = 'pointer';
-    });
-
-    map.on('mouseleave', tmpId, function() {
-      map.getCanvas().style.cursor = '';
-    });
-
     map.on('click', tmpId, function(e) {
       new mapboxgl.Popup()
         .setLngLat(e.lngLat)
@@ -68,6 +63,7 @@
 
     if(tmpId == 'us-libraries-7dnfzr') {
       map.on('mouseenter', tmpId, function(e) {
+        map.getCanvas().style.cursor = 'pointer';
         libPopup = new mapboxgl.Popup()
           .setLngLat(e.lngLat)
           .setHTML(buildLibMessage(e))
