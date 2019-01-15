@@ -70,7 +70,8 @@
       # Carmen Bourlon
       ## Twitter: [@carmalou](https://twitter.com/carmalou)
       ## Blog: [carmalou.com](http://carmalou.com)
-      ## [MargieMap](http://carmalou.com/margie)
+      ## [margiemap.com](https://www.margiemap.com)
+      ## Hire me 👉  [carmalou.com/about](https://carmalou.com/about/)
       
       ???
       Don't forget to breathe.
@@ -90,94 +91,160 @@
       ---
       class: center, middle, inverse, inverse
       
-      # Everything we do is online!
-      
-      ![alt text](./img/duty_calls.PNG "Someone is wrong on the internet")
-      
-      ???
-      * Work
-      * School
-      * Play
-      * Netflix
-      * Social Media
-      ---
-      class: center, middle, inverse, inverse
-      
       # If you aren't online, where even are you?
       
       ![alt text](./img/science-guy-pass-out.PNG "If Bill Nye faints and no one tweets it, did it happen?")
-      
-      ???
-      
       ---
       class: left, middle, inverse, inverse
       
       # Internet Access By The Numbers
       
-      * 64% of Americans have smartphones
-      
-      ???
-      Smartphones, much like the web itself, are ubiquitious in the United States. It seems like nearly everyone has one, but for many it is their only access to the internet.
+      * 77% of Americans have smartphones
       ---
       class: left, middle, inverse, inverse
       
       # Internet Access By The Numbers
       
-      * 64% have smartphones 
-        - 1 in 5 adults lack consistent internet beyond their phone
-      
-      ???
-      
-      64% of Americans have cell phones, but of those 19% don't have consistent internet access beyond their phone -- this number comes out to between 35 and 40 million Americans.
-      
-      Inconsistent access might mean that they don't have internet in their home, or that they don't have access to public places like libraries or panera where internet is available.
+      * 77% have smartphones 
+      * 20% of Americans are 'smartphone-dependent'
       ---
       class: left, middle, inverse, inverse
       
       # Internet Access By The Numbers
       
-      * 15%: owned a smartphone 
-        - limited options for internet beyond phones
-      
-      ???
-      To go further, 15% indicated that they have limited options for accessing the internet outside of their cellphone. 
-      
-      This can mean being limited to the public library, or public spaces like Starbucks or other businesses offering internet. It could also mean that they aren't close enough to any businesses to be able to take advantage of this, or there just aren't any public spaces with internet.
-
+      * 77% have smartphones 
+      * 20% of Americans are 'smartphone-dependent'
+        * Smartphone, but no internet at home
       ---
       class: left, middle, inverse, inverse
       
       # Internet Access By The Numbers
       
-      * 10%: owned a smartphone
-        - no high-speed internet at home
-      
-      ???
+      * 77% have smartphones 
+      * 20% of Americans are 'smartphone-dependent'
+        * Smartphone, but no internet at home
+        * Smartphone, but no internet nearby
       ---
       class: left, middle, inverse, inverse
       
       # Internet Access By The Numbers
       
-      * 7%: owned a cellphone
-        - limited options for access
-        - no internet at home
-      
-      ???
+      * 77% have smartphones 
+      * 20% of Americans are 'smartphone-dependent'
+        * Smartphone, but no internet at home
+        * Smartphone, but no internet nearby
+        * Both
       ---
       class: left, middle, inverse, inverse
       
       # Predictors of limited access
       
-      * Age: 18-29 year olds
-      * Income: Incomes under $30k
-      * Minorities: Latinos and African-Americans
+      - Age:
+        - 28% aged 18-29 are smartphone-dependent
+      ---
+      class: left, middle, inverse, inverse
       
-      ???
-      The greatest predictor of having internet in your home is income.
+      # Predictors of limited access
+      
+      - Ethnicity:
+        - 35% of Latinos Americans are smartphone-dependent
+        - 24% of Black Americans are smartphone-dependent
+      ---
+      class: left, middle, inverse, inverse
+      
+      # Predictors of limited access
+      
+      - Income: 
+        - Nearly 1/3 of people with income under 30k are smartphone-dependent
       ---
       class: center, middle, inverse, inverse
 
       ## [MargieMap](http://carmalou.com/margie)
+      ---
+      class: center, middle, inverse, inverse
+
+      # The Question:
+
+      ## Correlation between income and library access?
+      ---
+      class: left, middle, inverse, inverse
+
+      # What we need to find out:
+
+      1. [Census Data](link)
+      2. [Library Data](link)
+      3. [Turf.js](link)
+      4. Data conversion (and mostly patience here)
+      ---
+      class: left, middle, inverse, inverse
+
+      # [Turf.js](link)
+
+      ## Turf is a library maintained by [Mapbox](link) which allows you to analyze geospatial data with JavaScript (yay!).
+      ---
+      class: left, middle, inverse, inverse
+
+      # A few handy Turf functions
+
+      ```JavaScript
+      var features = turf.featureCollection([
+        turf.point([-75.343, 39.984], {"name": "Location A"}),
+        turf.point([-75.833, 39.284], {"name": "Location B"}),
+        turf.point([-75.534, 39.123], {"name": "Location C"})
+      ]);
+
+      var enveloped = turf.envelope(features);
+      ```
+      <sub>Source: [http://turfjs.org/docs/#envelope](http://turfjs.org/docs/#envelope)</sub>
+
+      ???
+      This function will return a polygon -- specifically a rectangle -- which contains the designated points.
+      ---
+      class: left, middle, inverse, inverse
+
+      # A few handy Turf functions
+
+      ```JavaScript
+      var polygon = turf.polygon([[[-81, 41], [-88, 36], [-84, 31], [-80, 33], [-77, 39], [-81, 41]]]);
+
+      var center = turf.centerOfMass(polygon);
+      ```
+      <sub>Source: [http://turfjs.org/docs/#centerOfMass](http://turfjs.org/docs/#centerOfMass)</sub>
+
+      ???
+      This function accepts a polygon and will return a single point -- the center of the polygon.
+      ---
+      class: left, middle, inverse, inverse
+
+      # A few handy Turf functions
+
+      ```JavaScript
+      var from = turf.point([-75.343, 39.984]);
+      var to = turf.point([-75.534, 39.123]);
+      var options = {units: 'miles'};
+
+      var distance = turf.distance(from, to, options);
+      ```
+      <sub>Source: [http://turfjs.org/docs/#distance](http://turfjs.org/docs/#distance)</sub>
+
+      ???
+      This function accepts two points and will return the distance between the two points
+      ---
+      class: left, middle, inverse, inverse
+
+      # A few handy Turf functions
+
+      ```JavaScript
+      var points = turf.points([ / ... / ]);
+
+      var searchWithin = turf.polygon([ / ... / ]);
+
+      var ptsWithin = turf.pointsWithinPolygon(points, searchWithin);
+      ```
+      <sub>Source: [http://turfjs.org/docs/#pointsWithinPolygon](http://turfjs.org/docs/#pointsWithinPolygon)</sub>
+
+      ???
+      This function takes in a single point or a list of points, and a second parameter -- a polygon. It checks to see if each point exists within the specified polygon. It returns a list of points that _do_ exist within the polygon.
       ---
       layout: false
       class: center, middle, inverse
@@ -185,6 +252,7 @@
       ## Twitter: [@carmalou](https://twitter.com/carmalou)
       ## Blog: [carmalou.com](http://carmalou.com)
       ## [MargieMap](http://carmalou.com/margie)
+      ## Hire me 👉 [carmalou.com/about](https://carmalou.com/about/)
 
 </textarea>
 <script src="./content/remark-latest.min.js"></script>

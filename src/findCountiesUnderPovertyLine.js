@@ -38,7 +38,7 @@ function readInData() {
         var returnArr = [];
 
         returnArr = responseArr.filter(function(county) {
-            return parseInt(county.median_income) < 26000;
+            return parseInt(county.median_income) > 99999;
         });
 
         console.log(returnArr.length);
@@ -88,7 +88,7 @@ function readInData() {
             return a.libraries - b.libraries;
         });
 
-        fs.writeFileSync('./../data/counties-below-poverty-line.json', JSON.stringify(newArr, null, 2), { encoding: 'utf-8' });
+        fs.writeFileSync('./../data/counties-over-100k.json', JSON.stringify(newArr, null, 2), { encoding: 'utf-8' });
     });
 }
 
