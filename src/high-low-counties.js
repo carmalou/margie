@@ -36,33 +36,64 @@ function readInData() {
     })
     .then(function(responseArr) {
         responseArr.sort(function(a, b) {
-            return b.median_income - a.median_income;
+            return a.median_income - b.median_income;
         });
 
-        return responseArr.slice(0,12);
+        return responseArr.slice(0,10);
     })
     .then(function(low10) {
-        // console.log('low10 ', low10);
         var polygonsArr = [];
         low10.forEach(function(countyIncome) {
-            polygonsArr.push(counties.features.find(function(county) {
-                // if(countyIncome.Geography == 'Greene County, Alabama') {
-                //     console.log('county ', county, ' countyIncome ', countyIncome);
-                // }
-                return county.properties.GEOID == countyIncome.Id2;
-            }));
+            counties.features.forEach(function(county) {
+                if(county.properties.GEOID == countyIncome.Id2) {
+                    var tmpObj = {};
+                    tmpObj.GeoId = countyIncome.GeoId;
+                    tmpObj.Geography = countyIncome.Geography;
+                    tmpObj.state = countyIncome.state;
+                    tmpObj.stateId = countyIncome.stateId;
+                    tmpObj.countyId = countyIncome.countyId;
+                    tmpObj.median_income = countyIncome.median_income;
+                    tmpObj.number_of_households = countyIncome.number_of_households;
+                    county.properties.countyData = tmpObj;
+                    polygonsArr.push(county);
+                }
+            })
         });
-
-        // console.log(polygonsArr);
 
         polygonsArr = polygonsArr.filter(function(polygon) {
             return polygon != undefined;
         });
+        
 
         polygonsArr.forEach(function(polygon) {
             var ptsWithin = pointsWithinPolygon(libraries, polygon);
-            console.log("There are " + ptsWithin.features.length + " libraries in " + polygon.properties.NAMELSAD + ".");
+            polygon.properties.libraries = ptsWithin.features.length;
         });
+
+        var writeArr = [];
+
+        polygonsArr.forEach(function(feature) {
+            writeArr.push(feature.properties);
+        });
+
+        var newArr = writeArr.reduce(function(arr, current) {
+            current.countyData.libraries = current.libraries;
+            arr.push(current.countyData);
+            return arr;
+        }, []);
+
+        newArr.sort(function(a,b) {
+            return a.libraries - b.libraries;
+        });
+
+        var totalLibs = newArr.reduce(function(num, current) {
+            num += current.libraries;
+            return num;
+        }, 0);
+
+        console.log('Total libraries: ', totalLibs);
+
+        fs.writeFileSync('./../data/low-10-counties.json', JSON.stringify(newArr, null, 2), { encoding: 'utf-8' });
     });
 }
 

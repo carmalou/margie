@@ -41,7 +41,6 @@ function readInData() {
             return parseInt(county.median_income) > 99999;
         });
 
-        console.log(returnArr.length);
         return returnArr;
     })
     .then(function(low10) {
@@ -88,7 +87,15 @@ function readInData() {
             return a.libraries - b.libraries;
         });
 
-        fs.writeFileSync('./../data/counties-over-100k.json', JSON.stringify(newArr, null, 2), { encoding: 'utf-8' });
+        var totalLibs = newArr.reduce(function(num, current) {
+            num += current.libraries;
+            return num;
+        }, 0);
+
+        console.log('Total libraries: ', totalLibs);
+        console.log('Number of counties: ', newArr.length);
+
+        fs.writeFileSync('./../data/counties-under-30k.json', JSON.stringify(newArr, null, 2), { encoding: 'utf-8' });
     });
 }
 
