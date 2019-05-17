@@ -38,7 +38,8 @@ function readInData() {
         var returnArr = [];
 
         returnArr = responseArr.filter(function(county) {
-            return parseInt(county.median_income) > 99999;
+            // return parseInt(county.number_of_households) > 2714 && parseInt(county.number_of_households) < 3471;
+            return parseInt(county.stateId) == 22;
         });
 
         return returnArr;
@@ -95,7 +96,7 @@ function readInData() {
         console.log('Total libraries: ', totalLibs);
         console.log('Number of counties: ', newArr.length);
 
-        fs.writeFileSync('./../data/counties-under-30k.json', JSON.stringify(newArr, null, 2), { encoding: 'utf-8' });
+        fs.writeFileSync('./../data/louisana-counties.json', JSON.stringify(newArr, null, 2), { encoding: 'utf-8' });
     });
 }
 
